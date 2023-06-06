@@ -8,3 +8,5 @@ stages:
     metrics:
     - eval/metrics.json:
         cache: false
+    outs:
+    - plot.png
