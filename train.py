@@ -25,7 +25,7 @@ with Live(save_dvc_exp=True) as live:
         depth = params.get('depth')
         depth += i
         print("logging params")
-        live.log_params(params)
+        live.log_params({'depth': depth})
         # Fit a model
         clf = RandomForestClassifier(max_depth=depth)
         clf.fit(X_train, y_train)
