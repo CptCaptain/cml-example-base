@@ -16,7 +16,7 @@ X_test = np.genfromtxt("data/test_features.csv")
 y_test = np.genfromtxt("data/test_labels.csv")
 
 print("starting experiment")
-with Live(save_dvc_exp=False) as live:
+with Live(save_dvc_exp=True) as live:
     print("logging params")
     live.log_params(params)
     # Fit a model
