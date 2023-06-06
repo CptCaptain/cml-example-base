@@ -3,6 +3,7 @@ from sklearn.metrics import ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 import numpy as np
 import yaml
+import json
 from dvclive import Live
 
 print("getting params")
@@ -28,6 +29,10 @@ with Live(save_dvc_exp=True) as live:
     print(acc)
     with open("metrics.txt", "w") as outfile:
         outfile.write("Accuracy: " + str(acc) + "\n")
+    
+    os.makedirs('eval', exist_ok=True)
+    with open('eval/metrics.json', 'w') as f:
+        json.dump({'acc': acc})
 
     # Plot it
     disp = ConfusionMatrixDisplay.from_estimator(
