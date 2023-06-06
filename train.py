@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import yaml
 import json
+import os
 from dvclive import Live
 
 print("getting params")
@@ -27,6 +28,7 @@ with Live(save_dvc_exp=True) as live:
 
     acc = clf.score(X_test, y_test)
     print(acc)
+    live.log_metric('accuracy', acc)
     with open("metrics.txt", "w") as outfile:
         outfile.write("Accuracy: " + str(acc) + "\n")
     
