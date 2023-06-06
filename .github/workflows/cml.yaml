@@ -16,6 +16,7 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
+          cml ci --user-email=cml-bot@plexico.space --user-name=cml[bot]
           python get_data.py
           python train.py
 
