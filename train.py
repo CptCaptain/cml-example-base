@@ -34,7 +34,7 @@ with Live(save_dvc_exp=True) as live:
     
     os.makedirs('eval', exist_ok=True)
     with open('eval/metrics.json', 'w') as f:
-        json.dump({'acc': acc})
+        json.dump(f, {'acc': acc})
 
     # Plot it
     disp = ConfusionMatrixDisplay.from_estimator(
